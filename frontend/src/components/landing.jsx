@@ -31,14 +31,15 @@ export default function Landing() {
     return (
         <>
             <Navbar />
-            <div className="flex justify-center items-center h-svh">
+            <div className="flex justify-center items-center min-h-screen ">
                 <div>
-                    <div className="flex justify-center m-5">
+                    <div className="flex justify-center mb-5">
                         <div class="logo" data-text="Awesome">
                             <span class="actual-text">&nbsp;42ka1&nbsp;</span>
                             <span aria-hidden="true" class="hover-text">&nbsp;42ka1&nbsp;</span>
                         </div>
                     </div>
+                        
                     <div className="items-center">
                         <div id="poda">
                             <div class="glow"></div>
@@ -71,7 +72,7 @@ export default function Landing() {
                                 <div id="input-mask"></div>
                                 <div id="pink-mask"></div>
                             </div>
-
+                            
                         </div>
 
                         {returnedUrl && <div className="flex bg-[#fefefe11] text-white p-3 m-5 rounded-2xl">

@@ -2,8 +2,10 @@ export default function Navbar() {
     return (
         <>
             <div className="h-17 w-full flex bg-[#474747] text-white p-3 shadow-2xl absolute">
-                <div className="flex w-full mx-5 lg:ml-20">
-                    <div className="font-black text-4xl text-[#fd105e]">42ka1</div>
+                <div className="flex w-full md:mx-5 lg:ml-20">
+                    <div className="font-black text-3xl sm:text-4xl text-[#fd105e]">
+                        <div>42ka1</div>
+                    </div>
                     <div className="hidden mx-auto md:grid grid-cols-3">
                         <button className="text-lg font-bold nav-button">about</button>
                         <button className="text-lg font-bold nav-button">features</button>

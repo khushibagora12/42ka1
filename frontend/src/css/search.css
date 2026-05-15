@@ -29,6 +29,11 @@
 .input{
   width: 90%;
 }
+  /* @media screen and (max-width: 433px) {
+    .input-box{
+      width: 200px
+    }
+  } */
 #poda {
   display: flex;
   align-items: center;
@@ -388,4 +393,73 @@
 
 .copy:hover svg {
   color: var(--button-hover-text-color);
+}
+
+/* for mobile */
+
+@media screen and (max-width: 480px) {
+  #poda {
+    padding-inline: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .white,
+  .border,
+  .darkBorderBg,
+  .glow {
+    max-width: calc(100vw - 32px);
+  }
+ .glow {
+    max-height: 90px;   
+    opacity: 0.25;      
+  }
+
+  .glow::before {
+    width: 600px;       
+    height: 600px; 
+  }
+
+  .darkBorderBg::before {
+    width: 400px; 
+    height: 400px; 
+  }
+  .white {
+    max-width: calc(100vw - 40px);
+  }
+
+  .border {
+    max-width: calc(100vw - 44px);
+  }
+
+  .darkBorderBg {
+    max-width: calc(100vw - 20px);
+  }
+
+  .glow {
+    max-width: calc(100vw + 8px);
+  }
+
+  .input-box {
+    width: calc(100vw - 48px);
+  }
+
+  .input {
+    width: 85%;
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+  }
+
+  #input-mask {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .input-box {
+    width: calc(100vw - 40px);
+  }
+
+  .input {
+    font-size: 15px;
+  }
 }
