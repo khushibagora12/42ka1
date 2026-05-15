@@ -1,0 +1,106 @@
+import { useState } from "react"
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import Navbar from "./navbar";
+
+export default function Landing() {
+    const [url, setUrl] = useState();
+    const [returnedUrl, setReturnedUrl] = useState()
+
+    const urlHandler = async () => {
+        if (!url) {
+            toast("empty field")
+            return;
+        }
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}`, {
+            url: url
+        }, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        console.log(res);
+        setReturnedUrl(res.data.url)
+        toast(res.data.message)
+        setUrl('')
+    }
+    const copyToClipboard = () => {
+        if(returnedUrl) 
+            navigator.clipboard.writeText(returnedUrl)
+    }
+    return (
+        <>
+            <Navbar />
+            <div className="flex justify-center items-center h-svh">
+                <div>
+                    <div className="flex justify-center m-5">
+                        <div class="logo" data-text="Awesome">
+                            <span class="actual-text">&nbsp;42ka1&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;42ka1&nbsp;</span>
+                        </div>
+                    </div>
+                    <div className="items-center">
+                        <div id="poda">
+                            <div class="glow"></div>
+                            <div class="darkBorderBg"></div>
+                            <div class="darkBorderBg"></div>
+                            <div class="darkBorderBg"></div>
+                            <div class="white"></div>
+                            <div class="border"></div>
+                            <div id="main">
+                                <div className="input-box">
+                                    <input placeholder="Enter URL" type="text" name="text" value={url} class="input" onChange={(e) => {
+                                        setUrl(e.target.value)
+                                    }} />
+                                    <button class="submit-button relative" onClick={urlHandler}>
+                                        <div class="submit-button-box">
+                                            <span class="submit-button-elem">
+                                                <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 20.038c0 .7.3 1.5.8 2.1l16 17c1.1 1 3.2 1.4 4.4.3 1.2-1.1 1.2-3.3 0-4.4L9.9 23H43c1.7 0 3-1.3 3-3s-1.3-3-3-3H9.9l11.3-11.9c1-1 1.2-3.3 0-4.4-1.2-1.1-3.3-.8-4.4.3l-16 17c-.5.5-.8 1.1-.8 1.9z" />
+                                                </svg>
+                                            </span>
+                                            <span class="submit-button-elem">
+                                                <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 20.038c0 .7.3 1.5.8 2.1l16 17c1.1 1 3.2 1.4 4.4.3 1.2-1.1 1.2-3.3 0-4.4L9.9 23H43c1.7 0 3-1.3 3-3s-1.3-3-3-3H9.9l11.3-11.9c1-1 1.2-3.3 0-4.4-1.2-1.1-3.3-.8-4.4.3l-16 17c-.5.5-.8 1.1-.8 1.9z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </button>
+
+                                </div>
+                                <div id="input-mask"></div>
+                                <div id="pink-mask"></div>
+                            </div>
+
+                        </div>
+
+                        {returnedUrl && <div className="flex bg-[#fefefe11] text-white p-3 m-5 rounded-2xl">
+
+                            <div className="my-auto">
+                                {returnedUrl}
+                            </div>
+
+                            <button className="copy ml-auto" onClick={copyToClipboard}>
+                                <span data-text-end="Copied!" data-text-initial="Copy to clipboard" className="tooltip"></span>
+                                <span>
+                                    <svg xml:space="preserve" viewBox="0 0 6.35 6.35" y="0" x="0" height="20" width="20" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" class="clipboard">
+                                        <g>
+                                            <path fill="currentColor" d="M2.43.265c-.3 0-.548.236-.573.53h-.328a.74.74 0 0 0-.735.734v3.822a.74.74 0 0 0 .735.734H4.82a.74.74 0 0 0 .735-.734V1.529a.74.74 0 0 0-.735-.735h-.328a.58.58 0 0 0-.573-.53zm0 .529h1.49c.032 0 .049.017.049.049v.431c0 .032-.017.049-.049.049H2.43c-.032 0-.05-.017-.05-.049V.843c0-.032.018-.05.05-.05zm-.901.53h.328c.026.292.274.528.573.528h1.49a.58.58 0 0 0 .573-.529h.328a.2.2 0 0 1 .206.206v3.822a.2.2 0 0 1-.206.205H1.53a.2.2 0 0 1-.206-.205V1.529a.2.2 0 0 1 .206-.206z"></path>
+                                        </g>
+                                    </svg>
+                                    <svg xml:space="preserve" viewBox="0 0 24 24" y="0" x="0" height="18" width="18" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" className="checkmark">
+                                        <g>
+                                            <path data-original="#000000" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                                        </g>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <ToastContainer position="bottom-right"/>
+        </>
+    )
+}
