@@ -76,7 +76,7 @@ app.get('/:hash/:index', async (req, res) => {
             return res.redirect(data);
         } else {
             const getUrl = await UrlDb.findOne({ uniqueKey: hash })
-            console.log("found url: ", getUrl.og_url[index]);
+            // console.log("found url: ", getUrl.og_url[index]);
 
             if (!getUrl) return res.json({ message: "not found" })
             const redUrl = getUrl.og_url[index];

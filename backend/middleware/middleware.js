@@ -6,16 +6,16 @@ const rateLimiter = (req, res, next) => {
     const windowSize = 10000 // 10 seconds
     const maxReq = 5;
 
-    console.log("time: ", now)
-    console.log("r1: ", rateLimiters)
+    // console.log("time: ", now)
+    // console.log("r1: ", rateLimiters)
 
     rateLimiters.filter((userReq) => {
-        console.log("diff: ", now - userReq.startTime)
+        // console.log("diff: ", now - userReq.startTime)
         if ((now - userReq.startTime) < windowSize) return userReq;
     });
-    console.log("r2: ", rateLimiters)
+    // console.log("r2: ", rateLimiters)
 
-    console.log("len: ", rateLimiters.length)
+    // console.log("len: ", rateLimiters.length)
     if (rateLimiters.length < maxReq) {
         rateLimiters.push({
             ip: ip,

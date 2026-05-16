@@ -1,8 +1,8 @@
 import {create} from 'zustand';
 
-const url = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-  updateBears: (newBears) => set({ bears: newBears }),
+const useUrl = create((set) => ({
+  url: 0,
+  updateUrl: (newUrl) => set({ url: newUrl }),
 }))
+
+export default useUrl;
