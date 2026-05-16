@@ -47,7 +47,7 @@ export default function FAQ() {
                                     </svg>
                                     <span className="tooltip">FAQ</span>
                                 </button>
-                                <p className="text-lg font-medium">Is 42ka1 free to use?</p>
+                                <p className="text-lg font-medium">How fast are redirects?</p>
                             </div>
                             <p>
                                 42ka1 uses caching and optimized database indexing for lightning-fast redirects.
@@ -63,7 +63,7 @@ export default function FAQ() {
                                     </svg>
                                     <span class="tooltip">FAQ</span>
                                 </button>
-                                <p className="text-lg font-medium">How fast are redirects?</p>
+                                <p className="text-lg font-medium">Do shortened links expire?</p>
                             </div>
                             <p>Yes, your shortened links remain active unless deleted or expired manually.</p>
                         </div>
