@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 
 const useUrl = create((set) => ({
-  url: 0,
+  url: "",
   updateUrl: (newUrl) => set({ url: newUrl }),
 }))
 
