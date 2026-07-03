@@ -16,7 +16,7 @@ A production-ready URL shortener built with the MERN stack, featuring Redis cach
 - Shorten any long URL to a compact link
 - Redis caching for fast repeated URL resolution
 - MongoDB indexing on short-code fields for optimized queries
-- API rate limiting (per IP) to prevent abuse
+- Custom API rate limiter to restrict the total number of requests within a fixed time window.
 - Clean, minimal UI
 
 ## How It Works
