@@ -26,7 +26,7 @@ app.post('/', async (req, res) => {
     const hashedUrl = await adler32(url);
     const frontend_url = process.env.FRONTEND_URL;
     if(!url.startsWith('http://') || !url.startsWith('https://')){
-        url = 'https://'+url;
+        url = 'https://'+ url;
     }
     const urlExist = await UrlDb.findOne({ og_url: url })
     if (urlExist) {
