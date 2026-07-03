@@ -9,7 +9,7 @@ const rateLimiter = (req, res, next) => {
     // console.log("time: ", now)
     // console.log("r1: ", rateLimiters)
 
-    ratelimiters = rateLimiters.filter((userReq) => {
+    rateLimiters = rateLimiters.filter((userReq) => {
         (now - userReq.startTime) < windowSize
     });
     // console.log("r2: ", rateLimiters)
